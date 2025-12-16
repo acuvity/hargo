@@ -77,7 +77,7 @@ type Page struct {
 	// Page title.
 	Title string `json:"title"`
 	// Detailed timing info about page load.
-	PageTiming PageTiming `json:"pageTiming"`
+	PageTimings PageTiming `json:"pageTimings"`
 	// (new in 1.2) A comment provided by the user or the application.
 	Comment string `json:"comment,omitempty"`
 }
@@ -116,7 +116,7 @@ type Entry struct {
 	// Info about cache usage.
 	Cache Cache `json:"cache"`
 	// Detailed timing info about request/response round trip.
-	PageTimings PageTimings `json:"pageTimings"`
+	Timings PageTimings `json:"timings"`
 	// optional (new in 1.2) IP address of the server that was connected
 	// (result of DNS resolution).
 	ServerIPAddress string `json:"serverIPAddress,omitempty"`
@@ -150,7 +150,7 @@ type Request struct {
 	// Total number of bytes from the start of the HTTP request message until
 	// (and including) the double CRLF before the body. Set to -1 if the info
 	// is not available.
-	HeaderSize int `json:"headerSize"`
+	HeadersSize int `json:"headersSize"`
 	// Size of the request body (POST data payload) in bytes. Set to -1 if the
 	// info is not available.
 	BodySize int `json:"bodySize"`

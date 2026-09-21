@@ -90,11 +90,11 @@ type PageTiming struct {
 	// request.
 	// Depeding on the browser, onContentLoad property represents DOMContentLoad
 	// event or document.readyState == interactive.
-	OnContentLoad int `json:"onContentLoad"`
+	OnContentLoad float64 `json:"onContentLoad"`
 	// Page is loaded (onLoad event fired). Number of milliseconds since page
 	// load started (page.startedDateTime). Use -1 if the timing does not apply
 	// to the current request.
-	OnLoad int `json:"onLoad"`
+	OnLoad float64 `json:"onLoad"`
 	// (new in 1.2) A comment provided by the user or the application.
 	Comment string `json:"comment"`
 }
@@ -108,7 +108,7 @@ type Entry struct {
 	StartedDateTime string `json:"startedDateTime"`
 	// Total elapsed time of the request in milliseconds. This is the sum of all
 	// timings available in the timings object (i.e. not including -1 values) .
-	Time float32 `json:"time"`
+	Time float64 `json:"time"`
 	// Detailed info about the request.
 	Request Request `json:"request"`
 	// Detailed info about the response.
@@ -306,22 +306,22 @@ type CacheObject struct {
 // PageTimings describes various phases within request-response round trip.
 // All times are specified in milliseconds.
 type PageTimings struct {
-	Blocked int `json:"blocked,omitempty"`
+	Blocked float64 `json:"blocked,omitempty"`
 	// optional - Time spent in a queue waiting for a network connection. Use -1
 	// if the timing does not apply to the current request.
-	DNS int `json:"dns,omitempty"`
+	DNS float64 `json:"dns,omitempty"`
 	// optional - DNS resolution time. The time required to resolve a host name.
 	// Use -1 if the timing does not apply to the current request.
-	Connect int `json:"connect,omitempty"`
+	Connect float64 `json:"connect,omitempty"`
 	// optional - Time required to create TCP connection. Use -1 if the timing
 	// does not apply to the current request.
-	Send int `json:"send"`
+	Send float64 `json:"send"`
 	// Time required to send HTTP request to the server.
-	Wait int `json:"wait"`
+	Wait float64 `json:"wait"`
 	// Waiting for a response from the server.
-	Receive int `json:"receive"`
+	Receive float64 `json:"receive"`
 	// Time required to read entire response from the server (or cache).
-	Ssl int `json:"ssl,omitempty"`
+	Ssl float64 `json:"ssl,omitempty"`
 	// optional (new in 1.2) - Time required for SSL/TLS negotiation. If this
 	// field is defined then the time is also included in the connect field (to
 	// ensure backward compatibility with HAR 1.1). Use -1 if the timing does not
